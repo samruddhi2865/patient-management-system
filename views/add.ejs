@@ -1,0 +1,30 @@
+<section>
+  <h2>Add Patient</h2>
+
+  <% if (errors && errors.length) { %>
+    <div class="errors">
+      <ul>
+        <% errors.forEach(function(e){ %>
+          <li><%= e %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form action="/add" method="post" class="form">
+    <label>
+      Name
+      <input type="text" name="name" value="<%= form.name || '' %>" required />
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" value="<%= form.email || '' %>" required />
+    </label>
+
+    <div>
+      <button type="submit">Add patient</button>
+      <a class="link" href="/patients">View all</a>
+    </div>
+  </form>
+</section>

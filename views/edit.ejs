@@ -1,0 +1,30 @@
+<section>
+  <h2>Edit Patient</h2>
+
+  <% if (errors && errors.length) { %>
+    <div class="errors">
+      <ul>
+        <% errors.forEach(function(e){ %>
+          <li><%= e %></li>
+        <% }) %>
+      </ul>
+    </div>
+  <% } %>
+
+  <form action="/patients/<%= patient.id %>?_method=PUT" method="post" class="form">
+    <label>
+      Name
+      <input type="text" name="name" value="<%= patient.name %>" required />
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" value="<%= patient.email %>" required />
+    </label>
+
+    <div>
+      <button type="submit">Update</button>
+      <a class="link" href="/patients">Cancel</a>
+    </div>
+  </form>
+</section>

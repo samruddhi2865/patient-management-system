@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Patient Management System</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Patient Management System</h1>
+        <nav>
+          <a href="/">Home</a> |
+          <a href="/add">Add patient</a> |
+          <a href="/patients">Show patients</a>
+        </nav>
+        <hr />
+      </header>
+
+      <main>
+        <%- body %>
+      </main>
+
+      <footer>
+        <hr />
+        <small>Built with Node.js, Express & MySQL</small>
+      </footer>
+    </div>
+  </body>
+</html>

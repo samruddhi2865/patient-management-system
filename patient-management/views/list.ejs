@@ -1,0 +1,38 @@
+<section>
+  <h2>All Patients</h2>
+
+  <form method="get" action="/patients" class="search">
+    <input type="text" name="q" placeholder="Search by name or email" value="<%= q || '' %>"/>
+    <button type="submit">Search</button>
+    <% if (q) { %> <a href="/patients">Clear</a> <% } %>
+  </form>
+
+  <% if (!patients || patients.length === 0) { %>
+    <p>No patients found.</p>
+  <% } else { %>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% patients.forEach(function(p) { %>
+          <tr>
+            <td><%= p.id %></td>
+            <td><%= p.name %></td>
+            <td><%= p.email %></td>
+           
+            <td>
+              <a href="/patients/edit/<%= p.id %>">Edit</a>
+
+              <form action="/patients/delete/<%= p.id %>" method="post" style="display:inline" onsubmit="return confirm('Delete this patient?');">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+</section>
